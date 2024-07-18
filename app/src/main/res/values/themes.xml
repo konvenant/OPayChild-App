@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="Theme.OpayChild" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/purple_200</item>
+        <item name="android:statusBarColor">@color/green</item>
+    </style>
+
+    <style name="YourAppTheme" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/purple_200</item>
+    </style>
+</resources>
+
