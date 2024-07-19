@@ -131,6 +131,7 @@ fun SettingsScreen (
 fun Settings(
     navController: NavController
 ) {
+
     val settingsItems = listOf(
         SettingsItem(id = "1", title = "Login Settings", icon = R.drawable.ic_fingeprint, rightIcon = R.drawable.ic_arrow_forward),
         SettingsItem(id = "2", title = "Payment Settings", icon = R.drawable.img8, rightIcon = R.drawable.ic_arrow_forward),
