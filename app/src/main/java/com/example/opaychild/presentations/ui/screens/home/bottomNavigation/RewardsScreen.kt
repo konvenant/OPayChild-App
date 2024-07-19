@@ -189,7 +189,7 @@ fun RewardScreen() {
                ) {
                    Text(
                        text = bonus,
-                       modifier = Modifier.padding(16.dp),
+                       modifier = Modifier.padding(12.dp),
                        fontSize = 13.sp,
                        fontFamily = font3,
                        color = White,

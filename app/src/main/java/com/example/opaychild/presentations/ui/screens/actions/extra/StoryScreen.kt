@@ -148,12 +148,13 @@ fun StoryScreen(
             id = "2",
             title = "Beach Fun",
             desc = "A day at the sunny beach.",
-            images = listOf(R.drawable.beach_story),
+            images = listOf(R.drawable.beach_story2),
             date = getCurrentDate() + 86400000L, // next day
             tags = listOf("Beach", "Fun"),
             rating = 4,
             likes = 98,
-            comments = listOf()
+            comments = listOf(),
+            story = "A day at the sunny beach."
         )
         // Add more stories
     )
@@ -172,6 +173,7 @@ fun Story(
     val (selectedStory, setSelectedStory) = remember { mutableStateOf<Story?>(null) }
 
     val currentStory = stories.firstOrNull { it.date == getCurrentDate() }
+    val upcomingStory = stories.last()
     val upcomingStories = stories.filter { it.date > getCurrentDate() }
 
     LazyColumn(
@@ -180,8 +182,8 @@ fun Story(
             .background(White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        item {
 
+        item {
             Row (
                 modifier = Modifier
                     .fillMaxWidth()
@@ -210,14 +212,17 @@ fun Story(
                     text = "Story",
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Green,
+                    color = Pink,
                     modifier = Modifier.padding(16.dp),
                     fontFamily = font1
                 )
             }
+        }
+
+        item {
             currentStory?.let {
                 Text(
-                    text = "Today's Story",
+                    text = "Today's Story ${upcomingStory.id}",
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
                     color = Pink,
@@ -228,17 +233,25 @@ fun Story(
             }
             Spacer(modifier = Modifier.height(16.dp))
         }
+
         item {
-            Text(
-                text = "Upcoming Stories",
-                fontSize = 22.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black,
-                modifier = Modifier.padding(16.dp),
-                fontFamily = font2
-            )
-            StoryList(stories = upcomingStories, onClick = setSelectedStory)
+            upcomingStory.let {
+                Text(
+                    text = "Upcoming Stories",
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Blue,
+                    modifier = Modifier.padding(16.dp),
+                    fontFamily = font2
+                )
+        //            val isCurrent = stories[0].date == getCurrentDate()
+                StoryItem(story = it, isCurrent = false, onClick = setSelectedStory)
+            }
+
+
         }
+
+
     }
 
     selectedStory?.let {

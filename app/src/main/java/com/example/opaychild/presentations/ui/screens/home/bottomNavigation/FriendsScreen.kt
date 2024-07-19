@@ -331,9 +331,6 @@ fun FriendModal(
            Box(
                modifier = Modifier
                    .clip(RoundedCornerShape(10.dp))
-                   .clickable {
-
-                   }
                    .height(400.dp)
            ) {
                Image(
@@ -390,7 +387,9 @@ fun FriendModal(
                    }
 
                        Row (
-                           modifier = Modifier.fillMaxWidth(),
+                           modifier = Modifier
+                               .fillMaxWidth()
+                               .padding(8.dp),
                            verticalAlignment = Alignment.CenterVertically,
                            horizontalArrangement = Arrangement.SpaceEvenly
                        ) {
